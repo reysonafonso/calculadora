@@ -38,13 +38,13 @@ export default function App() {
 
   function handleInput(buttonPressed){
     console.log(buttonPressed) // Mostra no Console a tecla pressionada
-    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "/" | buttonPressed === "%"){
+    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "/" | buttonPressed === "%" | buttonPressed === '+/-'){
       setCurrentNumber(currentNumber + " " + buttonPressed + " ")
       return
     }
     switch(buttonPressed){
       case 'DEL':
-        setCurrentNumber(currentNumber.substring(0, (currentNumber.length - 2)))
+        setCurrentNumber(currentNumber.substring(0, (currentNumber.length - 1)))
         return
       case 'LIMPAR': // Limpa todo o conteúdo
         setLastNumber("") 
@@ -55,7 +55,8 @@ export default function App() {
         calculator()
         return
       case '+/-':
-        return
+        setCurrentNumber((currentNumber *(-1)))
+      return
     }
 
     setCurrentNumber(currentNumber + buttonPressed)
